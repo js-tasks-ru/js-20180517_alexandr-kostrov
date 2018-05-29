@@ -5,7 +5,7 @@
  * @returns {number}
  */
 function pow (m, n) {
-    if (n <= 0 || (n ^ 0) !== n) {
+    if (n <= 0 || (n ^ 0) !== n ) {
         
         return "The wrong input value";
     } else {
@@ -17,7 +17,16 @@ function pow (m, n) {
    return m;
   }
 }
+function secondArg (arg1) {
+    arg2 = +prompt("Enter the second one");
+    isNaN(arg2) ? alert("wrong input value") : alert(pow(arg1,arg2));
+}
+function resolve () {
+    let arg1, arg2;
+    arg1 = +prompt("Enter the first value");
+    isNaN(arg1) ? alert("wrong input value") : secondArg(arg1);
+}
 
-let arg1=+prompt("Enter the first value");
-let arg2=+prompt("Enter the second one");
-alert(pow(arg1,arg2));
+resolve();
+     
+
