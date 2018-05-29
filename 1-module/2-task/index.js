@@ -11,11 +11,9 @@ function print (text) {
  * Эту функцию нужно поменять так,
  * чтобы функция sayHello работала корректно
  */
-function conf (){
-    return true;
-}
+
 function isValid (name) {
-   return name.length !== 0 && name.indexOf(" ") === -1 && name.length >= 4 && conf();
+   return name.length !== 0 && name.indexOf(" ") === -1 && name.length >= 4 && true;
 }
 
 function sayHello () {
