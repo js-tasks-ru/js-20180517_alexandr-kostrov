@@ -13,7 +13,7 @@ function print (text) {
  */
 
 function isValid (name) {
-   return name.length !== 0 && name !== 'undefined' && name.indexOf(" ") === -1 && name.length >= 4 && true;
+   return name && name !== 'undefined' && name.indexOf(" ") === -1 && [...name].length >= 4 && true;
 }
 
 function sayHello () {
