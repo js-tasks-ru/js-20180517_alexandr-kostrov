@@ -14,6 +14,10 @@
  * @param {Element} table
  */
 function highlight(table) {
+
+/*if(!row.getAttribute('hidden')){
+  row.setAttribute('hidden','');
+}*/
 }
 ```
 

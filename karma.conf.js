@@ -2,6 +2,7 @@
 // Generated on Sun Nov 26 2017 12:48:45 GMT+0000 (GMT)
 
 module.exports = function(config) {
+process.env.CHROME_BIN = require('puppeteer').executablePath()
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)

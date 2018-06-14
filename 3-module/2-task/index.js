@@ -12,14 +12,14 @@ calendar[Symbol.iterator] = function () {
             let year = first.getFullYear();
             let newMonth = first.getMonth();
             let date = first.getDate();
-            ++date;
             let day = first.getDay();
             if(month===newMonth) {
                 first = new Date(year, newMonth, date);
                 return {
                     done: false,
-                    value: day === 0 || day === 6 ? `["${day}"]` : `"${day}"`,
+                    value: day === 0 || day === 6 ? `["${date}"]` : `"${date}"`,
                 }
+                date++;
             } else {
                 return {
                     done: true,
