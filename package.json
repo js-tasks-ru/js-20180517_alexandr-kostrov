@@ -27,5 +27,8 @@
     "karma-jasmine": "^1.1.0",
     "karma-json-reporter": "^1.2.1",
     "karma-phantomjs-launcher": "^1.0.4"
+  },
+  "dependencies": {
+    "puppeteer": "^1.4.0"
   }
 }
