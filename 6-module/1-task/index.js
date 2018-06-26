@@ -1,5 +1,5 @@
 'use strict';
-
+ const MS_IN_DAY = 86400000;
 /**
  * Функция возвращает строкой, сколько времени осталоьс до события
  * @param {Date} when - дата события
@@ -8,17 +8,40 @@
 function getBeforeTime(when) {
     let current = new Date(Date.now()); // обязательно получать текущую дату через эту функцию. Иначе тесты работать не будут
    var time = when - current;
-    if((time) < 0){
-        return "The event has already pass away";
-    }
-    var years = time/1000/60/60/24/365 > 0 ? Math.floor(time/1000/60/60/24/365) : '';
-    var months = (time/1000/60/60/24/365*12 - 12*years) > 0 ?
-     Math.floor(time/1000/60/60/24/365*12 - 12*years) : '';
-     var days = (time/1000/60/60/24/365*12*30.5 - 12*years*30.5) > 0 ?
-      Math.floor((time/1000/60/60/24/365*12*30.5 - 12*years*30.5)%30.5) : '';
-    var hours =  (time/1000/60/60/24/365*12*30.5*24 - 12*years*30.5*24) > 0 ?
-     Math.floor((time/1000/60/60/24/365*12*30.5*24 - 12*years*30.5*24)%30.5) : '';
-    var minutes = (time/1000/60/60/24/365*12*30.5*24*60 - 12*years*30.5*24*60) > 0 ?
-    Math.floor((time/1000/60/60/24/365*12*30.5*24*60 - 12*years*30.5*24*60)%30.5) : '';
-     return `${years}years ${months}months ${days}days ${hours}hours ${minutes}minutes`
+   var rest = new Date(time);
+   
+   var result = [];
+
+   var year = rest.getFullYear() - 1970;
+   var month = rest.getMonth();
+   
+   let days = rest.getUTCDate();
+   let hours = rest.getUTCHours();
+   let minutes = rest.getUTCMinutes();
+   let sec = rest.getUTCSeconds();
+
+   if(rest <= MS_IN_DAY){
+       days -= 1;
+   }
+
+   if(year){
+       result.push(`${year}years`);
+   }
+   if(month){
+    result.push(`${month}months`);
+}
+   if(days){
+    result.push(`${days}days`);
+}
+   if(hours){
+    result.push(`${hours}hours`);
+}
+   if(minutes){
+    result.push(`${minutes}minutes`);
+}
+if(sec){
+    result.push(`${sec}seconds`);
+}
+
+return result.join(',')
 }
